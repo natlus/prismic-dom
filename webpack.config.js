@@ -1,7 +1,7 @@
 var webpack = require("webpack"),
   path = require("path"),
   yargs = require("yargs");
-  TerserPlugin = require('terser-webpack-plugin');
+TerserPlugin = require("terser-webpack-plugin");
 
 var libraryName = "PrismicDOM",
   fileName = "prismic-dom",
@@ -24,8 +24,7 @@ if (yargs.argv.p) {
         },
         parallel: true,
         cache: true
-      },
-      exclude: [/\.min\.js$/gi]
+      }
     })
   );
   outputFile = fileName + ".min.js";
@@ -34,13 +33,15 @@ if (yargs.argv.p) {
 }
 
 var config = {
+  mode: "production",
   entry: [__dirname + "/src/index.js"],
   output: {
     path: path.join(__dirname, "/dist"),
     filename: outputFile,
     library: libraryName,
     libraryTarget: "umd",
-    umdNamedDefine: true
+    umdNamedDefine: true,
+    globalObject: "this"
   },
   module: {
     rules: [
