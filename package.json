@@ -14,6 +14,9 @@
     "type": "git",
     "url": "git+https://github.com/prismicio/prismic-dom.git"
   },
+  "publishConfig": {
+    "@prisjakt:registry": "https://git.prisjakt.io/api/v4/projects/118/packages/npm/"
+  },
   "author": "",
   "license": "ISC",
   "bugs": {
